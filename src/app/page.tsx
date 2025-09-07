@@ -1,103 +1,118 @@
+'use client'
+
 import Image from "next/image";
+import React from 'react';
+import AutoImageFader from "@/components/homepage_gallery";
+import ProductCard from "@/components/product_card"
+import {useState, useEffect} from 'react';
+
+import imageProduct1 from '@/app/assets/clock_tower_gear.webp';
+import imageProduct2 from '@/app/assets/mr_fusion.webp';
+import imageProduct3 from '@/app/assets/grays_sports_almanac.webp';
+import imageOutOfTime from '@/app/assets/out_of_time_license_plate.webp';
+import imageIconAuthentic from '@/app/assets/authentic.png';
+import imageIconUnique from '@/app/assets/unique.jpg';
+import imageIconFreeShipping from '@/app/assets/free_shipping.png';
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    //Placeholder Product Images - To Delete once backend is setup
+    const product_images = [
+        {src: imageProduct1.src, title: "Clock Tower Fragment"},
+        {src: imageProduct2.src, title: "Mr. Fusion Energy Source"},
+        {src: imageProduct3.src, title: "Grays Sports Almanac"},
+    ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+    return (
+    <div>
+            {/*Top Image Gallery*/}
+            <div>
+                <AutoImageFader/>
+            </div>
+            {/*Our Differences Section*/}
+            <div className="pt-10">
+                <h2 className="text-center text-4xl font-extrabold italic">OUR DIFFERENCE</h2>
+            </div>
+            <div className="container mx-auto max-w-6xl pt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-[10%]">
+                    <div
+                        className="bg-white transform transition-transform duration-300 hover:scale-105">
+                        <div className="flex justify-center">
+                            <img className="w-auto h-32 object-cover"
+                             src={imageIconAuthentic.src}
+                             alt="Authentic icon"/>
+                        </div>
+                        <div className="p-6 text-center">
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">AUTHENTIC</h2>
+                            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                                Our items at Doc Brown's Eclectic Collections are 100% authentic and are never
+                                reproductions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        className="bg-white transform transition-transform duration-300 hover:scale-105">
+                        <div className="flex justify-center">
+                            <img className="w-auto h-32 object-cover"
+                             src={imageIconUnique.src}
+                             alt="Unique inventory icon"/>
+                        </div>
+                        <div className="p-6 text-center">
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">UNIQUE INVENTORY</h2>
+                            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                                Our products available changes weekly. You never know what you might find during your
+                                next visit.
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        className="bg-white overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                        <div className="flex justify-center">
+                           <img className="w-auto h-32 object-cover"
+                             src={imageIconFreeShipping.src}
+                             alt="Free shipping icon"/>
+                       </div>
+                        <div className="p-6 text-center">
+                            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">FREE SHIPPING</h2>
+                            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                                Spend over $100, and get free ground shipping.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/*Amost Out of Time Section*/}
+            <div className="container mx-auto max-w-6xl">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+                    {/*LEFT SECTION*/}
+                    <div className="md:col-span-2">
+                        <div className="h-full flex items-center justify-center">
+                            <img className="w-full object-cover"
+                                 src={imageOutOfTime.src}
+                                 alt="Placeholder image for the first section."/>
+                        </div>
+                        <div>
+                            <h4 className="text-gray-800 text-xl font-bold">Check out these perfect gifts</h4>
+                        </div>
+                    </div>
+
+                    {/*RIGHT SECTION*/}
+                    <div className="md:col-span-3">
+                        <div className="flex flex-col items-center justify-center pt-10">
+                            <script src="https://cdn.tailwindcss.com"></script>
+                            <div className="container mx-auto px-5 py-2 lg:pt-12">
+                                <div className="-m-1 flex flex-wrap">
+                                    {product_images.map((image, index) => (
+                                        <ProductCard key={index} src={image.src} title={image.title}/>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+    )}
