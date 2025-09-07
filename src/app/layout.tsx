@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Roboto } from 'next/font/google';
 import NavBar from "../components/nav_bar";
-import imagePath from '@/app/assets/delorean.png';
+// import imagePath from '@/app/assets/delorean.png';
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-            <NavBar brandName="DBEC" imageSrcPath={imagePath}/>
+            <NavBar brandName="DBEC" imageSrcPath="/delorean.png"/>
             {children}
       </body>
     </html>

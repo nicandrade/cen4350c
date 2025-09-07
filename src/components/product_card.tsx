@@ -1,7 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react';
 
-const ProductCard = ({ src, title }) => {
+interface ProductCardProps {
+    src: string;
+    title: string;
+}
+
+const ProductCard = ({ src, title }:ProductCardProps) => {
     return (
         <div className="flex w-full sm:w-1/2 md:w-1/3 flex-wrap">
             <div className="relative w-full p-1 md:p-2">
