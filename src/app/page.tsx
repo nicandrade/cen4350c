@@ -101,11 +101,12 @@ export default function Home() {
                     {/*RIGHT SECTION*/}
                     <div className="md:col-span-3">
                         <div className="flex flex-col items-center justify-center pt-10">
-                            <script src="https://cdn.tailwindcss.com"></script>
                             <div className="container mx-auto px-5 py-2 lg:pt-12">
-                                <div className="-m-1 flex flex-wrap">
+                                <div className="grid grid-cols-3 gap-4">
                                     {product_images.map((image, index) => (
-                                        <ProductCard key={index} src={image.src} title={image.title}/>
+                                        <div key={index} className="aspect-square">
+                                            <ProductCard src={image.src} title={image.title}/>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

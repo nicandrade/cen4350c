@@ -62,7 +62,7 @@ const NavBar: React.FC<NavBarProps> = ({brandName, imageSrcPath}) => {
             )}
 
             {/*Mobile Version*/}
-            //Need to build out mobile version of Naviagion
+            {/*//Need to build out mobile version of Naviagion*/}
         </nav>
     )
 }
