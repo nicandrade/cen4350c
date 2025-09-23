@@ -12,7 +12,6 @@ import imageProduct9 from "@/app/assets/a_match_made_in_space.webp";
 import imageProduct10 from "@/app/assets/enchantment_under_the_seas_dance.jpg";
 import imageProduct11 from "@/app/assets/cowboy_shirt.jpg";
 import imageProduct12 from "@/app/assets/cow_manure.webp";
-import imageOutOfTime from "@/app/assets/out_of_time_license_plate.webp";
 
 
 export default function Page() {
