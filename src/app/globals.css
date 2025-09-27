@@ -1,22 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
 @import "tailwindcss";
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');*/
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --color-amber-950: #ffbf00;
+  --font-roboto: var(--font-roboto), sans-serif;
+
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Roboto', sans-serif;
+    font-family: var(--font-roboto);
 }
 h3:hover {
     color: var(--color-amber-950);
     border-color: var(--color-amber-950);
 }
+
+
 
 .extra-bold-text {
     font-weight: 800;
@@ -28,6 +31,10 @@ h3:hover {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+}
+
+.font-black {
+    font-weight: 900;
 }
 
 .fade-image.active {

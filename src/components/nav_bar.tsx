@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link';
-//import React from 'react'
 import React, {useState} from 'react';
 import Image from "next/image";
+import Reg_Auth_Dialog from "@/components/reg_auth";
+
 
 const styles = {
     navLinks: 'cursor-pointer ml-10 uppercase text-xl',
@@ -22,9 +23,9 @@ const NavBar: React.FC<NavBarProps> = ({brandName, imageSrcPath}) => {
     };
 
     return (
-        <nav className='w-full h-15 shadow-xl bg-blue-950'>
+        <nav className='w-full shadow-xl bg-blue-950'>
             {/*Desktop Version*/}
-            <div className="flex items-center justify-between h-full px-5 w-full">
+            <div className="flex items-center justify-between h-15 px-5 w-full">
                 <div className="flex items-center space-x-5 z-50">
                     <Image src={imageSrcPath}
                            alt={"site logo"}
@@ -52,14 +53,19 @@ const NavBar: React.FC<NavBarProps> = ({brandName, imageSrcPath}) => {
                     hover:bg-blue-950 hover:text-amber-400 border border-amber-400 ease-in-out duration-300">LOG IN</h3>
                 </div>
             </div>
-            {isVisible && (
-                <div
-                    className="p-6 flex w-full shadow-md transition-all duration-300 ease-in-out top-16">
-                    <div>
-                        //placeholder for registration and log-in
+
+            <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out 
+                ${isVisible ? 'max-h-100 opacity-100' : 'max-h-0 opacity-0 p-0'}`}
+            >
+                <div className="bg-white">
+                    <div className="w-3/4 ml-auto">
+                        <Reg_Auth_Dialog/>
                     </div>
+
                 </div>
-            )}
+            </div>
+            {/* End of Sliding Panel */}
 
             {/*Mobile Version*/}
             {/*//Need to build out mobile version of Naviagion*/}
