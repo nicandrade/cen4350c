@@ -9,7 +9,7 @@ import {useState, useEffect} from 'react';
 import imageProduct1 from '@/app/assets/clock_tower_gear.webp';
 import imageProduct2 from '@/app/assets/mr_fusion.webp';
 import imageProduct3 from '@/app/assets/grays_sports_almanac.webp';
-import imageOutOfTime from '@/app/assets/out_of_time_license_plate.webp';
+import imageOutOfTime from '@/app/assets/almost_out_of_time.webp';
 import imageIconAuthentic from '@/app/assets/authentic.png';
 import imageIconUnique from '@/app/assets/unique.jpg';
 import imageIconFreeShipping from '@/app/assets/free_shipping.png';
@@ -93,8 +93,9 @@ export default function Home() {
                                  src={imageOutOfTime.src}
                                  alt="Placeholder image for the first section."/>
                         </div>
-                        <div>
-                            <h4 className="text-gray-800 text-xl font-bold">Check out these perfect gifts</h4>
+
+                        <div className="-mt-10">
+                            <h4 className="text-gray-800 text-xl font-bold my-0 text-center">Check out these perfect gifts</h4>
                         </div>
                     </div>
 
