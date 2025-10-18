@@ -1,8 +1,8 @@
 import ProductCard from "@/components/product_card";
 import React from "react";
 import {createClient} from '@/utils/supabase/server';
-import {notFound} from 'next/navigation';
 import Link from 'next/link';
+import { unstable_noStore } from 'next/cache';
 
 interface Product {
     id: number;
@@ -23,6 +23,7 @@ export default async function Page({
                                    }: {
     searchParams: { [key: string]: string | string[] | undefined };
 }) {
+    unstable_noStore();
 
     const supabase = await createClient();
 
@@ -71,20 +72,6 @@ export default async function Page({
 
     const safeRelatedProducts: ProductListing[] = relatedProducts ?? [];
 
-    const {data: products, error} = await supabase
-        .from('product')
-        .select('id, product_name, product_image_url');
-
-    const safeProducts: ProductListing[] = products ?? [];
-
-    if (safeProducts.length === 0) {
-        return (
-            <div className="text-center font-roboto pt-10">
-                <h2 className="text-4xl font-black italic">D'oh no products found.</h2>
-            </div>
-        );
-    }
-
     return (
         <div className="md:col-span-4">
             <div className="flex flex-col w-full items-center justify-center">
@@ -113,7 +100,7 @@ export default async function Page({
                 </div>
             </div>
 
-            <div className="container mx-auto max-w-6xl">
+            <div className="container mx-auto max-w-6xl pl-10 pr-10">
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
 
                     <div className="md:col-span-3 py-10">
@@ -138,12 +125,12 @@ export default async function Page({
                             <div className="flex flex-col items-center justify-center pt-3">
                                 <div className="container mx-auto px-5 py-2">
                                     <div className="grid md:grid-cols-2 gap-4">
-                                        {safeProducts.slice(0, 2).map((product) => (
-                                            <div key={product.id} className="aspect-square">
+                                        {safeRelatedProducts.map((relatedProduct) => (
+                                            <div key={relatedProduct.id} className="aspect-square">
                                                 <ProductCard
-                                                    product_name={product.product_name}
-                                                    product_image_url={product.product_image_url}
-                                                    product_id={product.id}
+                                                    product_name={relatedProduct.product_name}
+                                                    product_image_url={relatedProduct.product_image_url}
+                                                    product_id={relatedProduct.id}
                                                 />
                                             </div>
                                         ))}
