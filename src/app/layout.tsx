@@ -3,6 +3,7 @@ import type {Metadata} from 'next';
 import {Roboto} from 'next/font/google';
 import {createClient} from '@/utils/supabase/server'
 import NavBar from '@/components/nav_bar'
+import Link from 'next/link';
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -40,6 +41,14 @@ export default async function RootLayout({
             user={navBarUser}
         />
         {children}
+        <div className="navbar text-center py-5 font-black text-blue-950">
+            {'QUICK NAVIGATION - '}
+            <Link href="/">HOME</Link>
+            {'  |  '}
+            <Link href="/products">PRODUCTS</Link>
+            {'  |  '}
+            <Link href="/about">ABOUT</Link>
+        </div>
         </body>
         </html>
     );

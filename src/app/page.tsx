@@ -1,28 +1,35 @@
-'use client'
-
 import Image from "next/image";
 import React from 'react';
 import AutoImageFader from "@/components/homepage_gallery";
 import ProductCard from "@/components/product_card"
-import {useState, useEffect} from 'react';
 
-import imageProduct1 from '@/app/assets/clock_tower_gear.webp';
-import imageProduct2 from '@/app/assets/mr_fusion.webp';
-import imageProduct3 from '@/app/assets/grays_sports_almanac.webp';
 import imageOutOfTime from '@/app/assets/almost_out_of_time.webp';
 import imageIconAuthentic from '@/app/assets/authentic.png';
 import imageIconUnique from '@/app/assets/unique.jpg';
 import imageIconFreeShipping from '@/app/assets/free_shipping.png';
+import { createClient } from '@/utils/supabase/server';
 
+interface Product {
+    id: number;
+    product_name: string | null;
+    product_image_url: string | null;
+}
 
-export default function Home() {
-    //Placeholder Product Images - To Delete once backend is setup
-    const product_images = [
-        {src: imageProduct1.src, title: "Clock Tower Fragment"},
-        {src: imageProduct2.src, title: "Mr. Fusion Energy Source"},
-        {src: imageProduct3.src, title: "Grays Sports Almanac"},
-    ];
+export default async function Home() {
+    const supabase = await createClient();
+    const { data: products, error } = await supabase
+        .from('product')
+        .select('id, product_name, product_image_url, product_price, product_description');
 
+    const safeProducts: Product[] = products ?? [];
+
+    if (safeProducts.length === 0) {
+        return (
+            <div className="text-center font-roboto pt-10">
+                <h2 className="text-4xl font-black italic">D'oh no products found.</h2>
+            </div>
+        );
+    }
 
     return (
     <div>
@@ -104,9 +111,13 @@ export default function Home() {
                         <div className="flex flex-col items-center justify-center pt-10">
                             <div className="container mx-auto px-5 py-2 lg:pt-12">
                                 <div className="grid grid-cols-3 gap-4">
-                                    {product_images.map((image, index) => (
-                                        <div key={index} className="aspect-square">
-                                            <ProductCard src={image.src} title={image.title}/>
+                                    {safeProducts.slice(0,3).map((product) => (
+                                        <div key={product.id} className="aspect-square">
+                                            <ProductCard
+                                                product_name={product.product_name}
+                                                product_image_url={product.product_image_url}
+                                                product_id={product.id}
+                                            />
                                         </div>
                                     ))}
                                 </div>
