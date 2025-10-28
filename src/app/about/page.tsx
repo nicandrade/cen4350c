@@ -43,20 +43,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
-                {/*Testing Google Fonts*/}
-                {/*<div>*/}
-                {/*    <h1>Google Roboto Font Test</h1>*/}
-                {/*    <p style={{ fontWeight: 900 }} className="text-4xl italic">ABOUT US</p>*/}
-                {/*    <p style={{ fontWeight: 700 }}>This is 700 Bold.</p>*/}
-                {/*    <p style={{ fontWeight: 500 }}>This is 500 Medium.</p>*/}
-                {/*    <p style={{ fontWeight: 400 }}>This is 400 Regular.</p>*/}
-                {/*    <p style={{ fontWeight: 300 }}>This is 300 Light.</p>*/}
-                {/*    <p style={{ fontWeight: 100 }}>This is 100 Thin.</p>*/}
-                {/*    <hr />*/}
-                {/*    <p style={{ fontWeight: 700, fontStyle: 'italic' }}>This is 700 Bold Italic.</p>*/}
-                {/*    <p style={{ fontWeight: 400, fontStyle: 'italic' }}>This is 400 Regular Italic.</p>*/}
-                {/*    <p style={{ fontWeight: 100, fontStyle: 'italic' }}>This is 100 Thin Italic.</p>*/}
-                {/*</div>*/}
+
 
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
 
@@ -113,5 +100,5 @@ export default function Page() {
                 </div>
             </div>
         </div>
-            );
-            }
+    );
+}

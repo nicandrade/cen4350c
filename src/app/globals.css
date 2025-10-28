@@ -2,23 +2,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-amber-950: #ffbf00;
-  --font-roboto: var(--font-roboto), sans-serif;
+    --background: #ffffff;
+    --foreground: #171717;
+    --color-amber-950: #ffbf00;
+    --font-roboto: var(--font-roboto), sans-serif;
 
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+    background: var(--background);
+    color: var(--foreground);
     font-family: var(--font-roboto);
 }
+
 h3:hover {
     color: var(--color-amber-950);
     border-color: var(--color-amber-950);
 }
-
 
 
 .extra-bold-text {

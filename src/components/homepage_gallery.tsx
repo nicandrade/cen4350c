@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import imageGallery1 from '@/app/assets/gallery_1.webp';
 import imageGallery2 from '@/app/assets/gallery_2.webp';
 import imageGallery3 from '@/app/assets/gallery_3.webp';

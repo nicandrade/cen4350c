@@ -2,7 +2,7 @@ import ProductCard from "@/components/product_card";
 import React from "react";
 import {createClient} from '@/utils/supabase/server';
 import Link from 'next/link';
-import { unstable_noStore } from 'next/cache';
+import {unstable_noStore} from 'next/cache';
 
 interface Product {
     id: number;

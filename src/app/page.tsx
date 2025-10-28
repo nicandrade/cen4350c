@@ -90,7 +90,7 @@ export default async function Home() {
                     </div>
                 </div>
             </div>
-            {/*Amost Out of Time Section*/}
+        {/*Amost Out of Time Section*/}
             <div className="container mx-auto max-w-6xl">
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                     {/*LEFT SECTION*/}
