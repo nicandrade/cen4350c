@@ -232,7 +232,7 @@ const NavBar: React.FC<NavBarProps> = ({imageSrcPath, user}) => {
 
             <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out 
-                ${isVisible ? 'max-h-100 opacity-100' : 'max-h-0 opacity-0 p-0'}`}
+    ${isVisible ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 p-0'}`}
             >
                 <div className="bg-white">
                     <div className="w-3/4 ml-auto">
