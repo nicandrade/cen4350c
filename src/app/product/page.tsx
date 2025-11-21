@@ -76,11 +76,17 @@ export default async function Page({
         <div className="md:col-span-4">
             <div className="flex flex-col w-full items-center justify-center">
                 <div className="relative w-full h-[500px] overflow-hidden">
-                    <img
-                        src={product.product_image_url ?? '/delorean.png'}
-                        alt={product.product_name ?? 'Error, missing name'}
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-                    />
+                    <div className="relative w-full h-full">
+                        <img
+                            src={product.product_image_url ?? '/delorean.png'}
+                            alt={product.product_name ?? 'Error, missing name'}
+                            className="w-full h-full object-contain transition-opacity duration-1000"
+                        />
+
+                        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white to-transparent"></div>
+
+                        <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white to-transparent"></div>
+                    </div>
                     <Link
                         href="/products"
                         className="absolute top-15 left-10

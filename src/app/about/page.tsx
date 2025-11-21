@@ -93,8 +93,10 @@ export default function Page() {
                     {/* RIGHT */}
                     <div className="md:col-span-2">
                         <div>
-                            <h3 className="cursor-pointer text-center px-4 py-1 rounded-full bg-amber-400 text-blue-950 hover:bg-blue-950
-                            hover:text-amber-400 border border-amber-400 ease-in-out duration-300">VIEW PRODUCTS</h3>
+                            <a href="/products">
+                                <h3 className="cursor-pointer text-center px-4 py-1 rounded-full bg-amber-400 text-blue-950 hover:bg-blue-950
+    hover:text-amber-400 border border-amber-400 ease-in-out duration-300">VIEW PRODUCTS</h3>
+                            </a>
                         </div>
                     </div>
                 </div>

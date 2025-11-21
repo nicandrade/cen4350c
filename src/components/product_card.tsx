@@ -16,7 +16,9 @@ const ProductCard = ({ product_name, product_image_url, product_id }: ProductCar
         router.push(`/product?id=${product_id}`);
     };
     return (
-        <div className="relative w-full h-full group">
+        <div className="relative w-full h-full group"
+             onClick={handleViewClick}>
+
             <img
                 alt={product_name ?? 'Error, missing name'}
                 className="block h-full w-full rounded-2xl object-cover object-center"
